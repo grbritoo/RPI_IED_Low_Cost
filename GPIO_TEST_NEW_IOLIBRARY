@@ -1,0 +1,25 @@
+from gpiozero import LED
+from time import sleep
+import csv
+
+LED_PIN = 17  # GPIO17
+
+led = LED(LED_PIN)
+
+print("Starting LED blink test on GPIO17... Press Ctrl+C to stop.")
+
+try:
+    while True:
+        led.on()
+        print("LED ON")
+        sleep(1)
+
+        led.off()
+        print("LED OFF")
+        sleep(1)
+
+except KeyboardInterrupt:
+    print("Test interrupted by user.")
+
+# No need for explicit cleanup — gpiozero handles it automatically
+print("GPIO cleaned up. Test complete.")
